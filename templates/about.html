@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'aboutstyles.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="custom-bg">
+    <section class="hero-section">
+        <!-- Your content here -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../events">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../officers">Officers</a>
+                </li>
+                {% if not signed_in%}
+                <li style="position: absolute; right: 5vw;" class="nav-item">
+                    <a class="nav-link" href="../signin">Sign In</a>
+                </li>
+                {% else %}
+                <li style="position: absolute; right: 5vw;" class="nav-item">
+                    <a class="nav-link" href="../signin">Profile</a>
+                </li>
+                {% endif %}
+            </ul>
+
+        </nav>
+        <br>
+        <br>
+        <div class="title-div">
+            <div class="hero-text">
+                <br>
+                <br>
+                <h1 class="hero-title">Who are we?</h1>
+                <h1 class="hero-title">The best club.</h1>
+
+
+                <br>
+                <hr class="gradient">
+                <br>
+                <p class="hero-descrip">
+                    The German Honor Society aims to spread the love of German language and culture around the school.
+                    It's not all about learning though; enjoy delicious food, celebrate age-old traditions, and groove
+                    along to classics! At GHS, we aren't just learning German culture, we are living it.
+                </p>
+                <br>
+                <a href="about/" class="hero-redirect">Apply now ></a>
+            </div>
+            <div class="hero-img">
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <img class='hero-image' src="{% static 'aboutimg.jpg' %}">
+            </div>
+        </div>
+
+        <div class="events-div">
+
+
+            <h2 class="events-title">
+                Our Values
+            </h2>
+            <p class="events-descrip">
+                At the GHS, we do our best to ensure that we are helping make TJ a happier and more fun place to learn!
+            </p>
+            <br>
+            <br>
+            <div class="values-div">
+                <div class="value-div">
+                    <div class="small">
+                        <p class="value-small-text">Culture</p>
+                    </div>
+                    <div class="large">
+                        <p class="value-large-text">We dive into the heart of German traditions, language, and history. Our journey through Germany's rich cultural landscape inspires a deeper understanding and appreciation of the world's diverse heritage.</p></div>
+                </div>
+                <div class="value-div">
+                    <div class="large"><p class="value-large-text">We're more than a club; we're a family that grows together by sharing experiences and supporting each other. From local events to international exchanges, we foster a sense of belonging and mutual support.</p></div>
+                    <div class="small">
+                        <p class="value-small-text">Community</p></div>
+                </div>
+                <div class="value-div">
+                    <div class="small"><p class="value-small-text">Connection</p></div>
+                    <div class="large"><p class="value-large-text">Bridging gaps between cultures, we cultivate a network of friendships and understanding. Our activities are designed to connect hearts and minds, making the world a smaller, friendlier place.</p></div>
+                </div>
+                <div class="value-div">
+                    <div class="large"><p class="value-large-text">Exploring German culture through art, music, and innovation, we encourage creative expression in all its forms. Our club is a canvas for imagination, where every idea is celebrated and every voice heard.</p></div>
+                    <div class="small"><p class="value-small-text">Creativity</p></div>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="wwd-container">
+            <div class="wwd-div">
+                <br>
+                <br>
+                <h2 class="wwd-title">
+                    Join Us
+                </h2>
+                <p class="wwd-descrip">
+                    Embark on a journey with the German Honor Society where culture, camaraderie, and curiosity converge. Your adventure begins here.
+                </p>
+                <br>
+                <br>
+            </div>
+            <div class="wwd-image-container">
+                <image class="wwd-image" src="{% static 'wwd.jpg' %}">
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="tabs">
+          <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
+          <label for="tab1" class="tabs__label">[REQUIREMENT 1] GERMAN 3+</label>
+          <div class="tabs__content">
+              <p class="tabs_content_text">This requirement ensures that members have achieved a certain level of proficiency and commitment to the study of the German language.</p>
+          </div>
+          <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
+          <label for="tab2" class="tabs__label">[REQUIREMENT 2] 2+ MEETINGS</label>
+          <div class="tabs__content">
+              <p class="tabs_content_text">This criterion is designed to gauge a student's interest and participation in the society's activities. This requirement helps build a cohesive and active community within the honor society.</p>
+          </div>
+            <input type="radio" class="tabs__radio" name="tabs-example" id="tab3">
+          <label for="tab3" class="tabs__label">[REQUIREMENT 3] 3 SERVICE HOURS</label>
+          <div class="tabs__content">
+              <p class="tabs_content_text">This requirement emphasizes the importance of community service and active contribution to our society's goals.</p>
+          </div>
+        </div>
+        <br>
+        <h3 class="redirec-title">Meet all the requirements?</h3>
+        <a href="about/" class="hero-redirect">Apply now ></a>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
