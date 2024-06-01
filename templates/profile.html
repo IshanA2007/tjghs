@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHS Home</title>
+    <link rel="stylesheet" href="{% static 'homestyles.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="custom-bg">
+<section class="hero-section">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/events/">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/officers/">Officers</a>
+            </li>
+            {% if not signed_in %}
+                <li style="position: absolute; right: 5vw;" class="nav-item">
+                    <a class="nav-link" href="/signin/">Sign In</a>
+                </li>
+            {% else %}
+                <li style="position: absolute; right: 5vw;" class="nav-item">
+                    <a class="nav-link" href="/signin/">Profile</a>
+                </li>
+            {% endif %}
+        </ul>
+
+    </nav>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <h1 class="hero-title">Hello, {{ user.username }}</h1>
+                </div>
+                <div class="row">
+                    <p class="hero-descrip">Here you will be able to view and manage your service hours for GHS!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <p class="value-large-text">Induction Date: {{ user.inductedDate }}</p>
+                </div>
+                <div class="row">
+                    <p class="value-large-text">Total Hours: {{ user.numServiceHours }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr class="gradient">
+    <div id="pending" class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <h1 class="events-title">Pending Claims</h1>
+                </div>
+                {% for cursub in curusersubmissions %}
+                    <div class="row info-div my-5 py-2">
+                        <div class="col-12">
+                            <div class="row">
+                                <p class="value-small-text">Service Hours: {{ cursub.service_hours }}</p>
+                            </div>
+                            <div class="row">
+                                <p class="value-small-text">Date: {{ cursub.date }}</p>
+                            </div>
+                            <div class="row">
+                                <p class="value-small-text">Description: {{ cursub.reasoning }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="row">
+                        <p class="value-small-text">No pending claims!</p></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <hr class="gradient">
+    <div id="submit" class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <h1 class="events-title">Submit Claims</h1>
+                </div>
+                <div class="row">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <p>Make sure your date is in the format 'mm/dd/yyyy'</p>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="gradient">
+    {% if user.isAdmin %}
+        <div id="admin" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <h1 class="events-title">Admin Panel</h1>
+                    </div>
+                    <div class="row">
+
+                        {% for submission in submissions %}
+                            <div class="row claim-div my-3 py-2">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <p class="value-small-text">User: {{ submission.user }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="value-small-text">Service Hours: {{ submission.service_hours }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="value-small-text">Date: {{ submission.date }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="value-small-text">Description: {{ submission.reasoning }}</p>
+                                    </div>
+                                </div>
+                                <form method="post" action="/approve_submission/">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="submission_user" value="{{ submission.user }}">
+                                    <input type="hidden" name="submission_service_hours"
+                                           value="{{ submission.service_hours }}">
+                                    <input type="hidden" name="submission_id" value="{{ submission.id }}">
+                                    <button type="submit">✔️</button>
+                                </form>
+                                <form method="post" action="/reject_submission/">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="submission_id" value="{{ submission.id }}">
+                                    <button type="submit">❌</button>
+                                </form>
+
+                            </div>
+                        {% empty %}
+                            <div class="row">
+                                <div class="col-12">
+                                    No submissions yet.
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+</section>
+<section class="content-section mt-5">
+    <footer class="text-center py-3 mt-auto">
+        <p class="hero-descrip">Made by Ishan Ajwani and his advisory board
+
+    </footer>
+</section>
+</body>
+</html>

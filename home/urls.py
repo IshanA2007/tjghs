@@ -10,6 +10,10 @@ urlpatterns = [
     path("about/", AboutView.as_view(), name="about"),
     path("events/", EventsView.as_view(), name="events"),
     path("officers/", OfficersView.as_view(), name="officers"),
-    path("profile/", profile, name="profile"),
+    path("servicehours/", ServiceHoursView.as_view(), name="servicehours"),
+    path("profile/", ProfileView.as_view(), name="profile"),
     path("signin/", signin, name="signin"),
+    path("approve_submission/", approve_submission, name="approve_submission"),
+
+    path("reject_submission/", reject_submission, name="reject_submission"),
 ]

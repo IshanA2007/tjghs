@@ -1,150 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Recoleta:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
-.hero-title {
-    font-size: 4rem;
-
-}
-
-.events-title, .title {
-    font-size: 3.5rem;
-}
-
-
-.hero-descrip, .sub-title, .events-descrip .hero-redirect {
-    font-size: 1.1rem;
-}
-
-.small-div {
-    height: 12vh;
-}
-
-.large-div {
-    height: 28vh;
-}
-
-.value-small-text {
-    font-size: 2.5rem;
-}
-
-.value-large-text {
-    font-size: 1.3rem;
-}
-
-@media (max-width: 1200px) {
-    .hero-title {
-        font-size: 2.9rem;
-    }
-
-    .events-title, .title {
-        font-size: 2.5rem;
-    }
-
-    .hero-descrip, .sub-title, .events-descrip .hero-redirect {
-        font-size: 0.9rem;
-    }
-
-    .small-div {
-        height: 11vh;
-    }
-
-    .large-div {
-        height: 26vh;
-    }
-
-}
-
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 4rem;
-    }
-
-    .events-title, .title {
-        font-size: 3.5rem;
-    }
-
-    .hero-descrip, .sub-title, .events-descrip .hero-redirect {
-        font-size: 1.1rem;
-    }
-
-    .small-div {
-        height: 11vh;
-    }
-
-    .large-div {
-        height: 25vh;
-    }
-
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 3.5rem;
-    }
-
-    .events-title, .title {
-        font-size: 3rem;
-    }
-
-    .hero-descrip, .sub-title, .events-descrip .hero-redirect {
-        font-size: 1.1rem;
-    }
-
-    .small-div {
-        height: 10vh;
-    }
-
-    .large-div {
-        height: 25vh;
-    }
-
-    .value-large-text {
-        font-size: 1.1rem;
-    }
-
-}
-
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 1.5rem;
-    }
-
-    .events-title, .titleF {
-        font-size: 1.7rem;
-    }
-
-    .hero-descrip, .sub-title, .events-descrip, .footer, .hero-redirect {
-        font-size: 0.7rem;
-    }
-
-    .small-div {
-        height: 5vh;
-    }
-
-    .large-div {
-        height: 15vh;
-    }
-
-    .value-large-text {
-        font-size: 0.6rem;
-    }
-
-    .value-small-text {
-        font-size: 1.5rem;
-    }
-
-}
-
-@media (max-width: 375px) {
-    .value-small-text {
-        font-size: 1.3rem;
-    }
-
-    .value-large-text {
-        font-size: 0.5rem;
-    }
-}
-
 .custom-bg {
     background-color: #EAE8E1;
     margin: 0;
@@ -229,7 +85,7 @@
 
 .hero-title {
     font-family: 'Recoleta', sans-serif;
-
+    font-size: 72px;
     background: linear-gradient(to right, rgba(17, 16, 17, 1) 0%, rgba(17, 16, 17, 0.6) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -254,7 +110,7 @@
     margin: auto;
     text-align: center;
     font-family: 'Quicksand', monospace;
-
+    font-size: 18px;
 }
 
 hr.gradient {
@@ -283,6 +139,7 @@ hr.gradient {
 .hero-redirect {
     color: brown;
     text-decoration: none;
+    font-size: 16px;
 
     font-family: "Quicksand", sans-serif;
     text-align: center;
@@ -299,7 +156,7 @@ hr.gradient {
 }
 
 .events-title {
-
+    font-size: 56px;
     font-family: 'Recoleta', sans-serif;
 }
 
@@ -307,7 +164,7 @@ hr.gradient {
     margin: auto;
     text-align: center;
     font-family: 'Quicksand', monospace;
-
+    font-size: 18px;
     width: 75%;
 }
 
@@ -356,19 +213,19 @@ hr.gradient {
     padding-top: calc(var(--index) * var(--crdTopPadding));
 }
 
-#crd1 {
+#crd1 .crd-body {
     background-color: #F4F2EF;
 }
 
-#crd2 {
+#crd2 .crd-body {
     background-color: #827C6A;
 }
 
-#crd3 {
+#crd3 .crd-body {
     background-color: #C8DFB9;
 }
 
-#crd4 {
+#crd4 .crd-body {
     background-color: #94A1AA;
 }
 
@@ -381,7 +238,6 @@ hr.gradient {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 body {
@@ -526,6 +382,7 @@ body {
 }
 
 .title {
+    font-size: 56px;
     font-family: 'Recoleta', sans-serif;
 }
 
@@ -534,7 +391,7 @@ body {
 
     text-align: center;
     font-family: 'Quicksand', monospace;
-
+    font-size: 18px;
 }
 
 .sub-title button {
@@ -570,7 +427,8 @@ body {
 }
 
 .subimg {
-
+    height: 350px;
+    width: 350px;
     border-radius: 6mm;
 }
 
@@ -661,104 +519,4 @@ body {
     right: 0;
     top: 0;
     transform: rotateZ(180deg);
-}
-
-.small-div {
-
-    background-color: #c1d0e3;
-
-    align-items: center;
-    border-radius: 20px;
-    justify-content: center;
-
-}
-
-.large-div {
-
-    align-items: center; /* Centers the content vertically */
-    justify-content: center; /* Centers the content horizontally */
-
-    background-color: #C8DFB9;
-    border-radius: 20px;
-}
-
-.small-div, .large-div {
-    /* Other styles remain the same */
-    transition: transform 0.3s ease;
-}
-
-.small-div:hover, .large-div:hover {
-    transform: scale(1.05);
-}
-
-
-.tabs {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    width: 65%;
-    justify-content: space-between;
-    font-family: sans-serif;
-    border-bottom: none;
-}
-
-.tabs__label {
-    flex: 1;
-    text-align: center;
-    padding: 10px 0;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
-    box-sizing: border-box;
-    font-family: 'Lao MN', sans-serif;
-    font-weight: bold;
-}
-
-.tabs__radio {
-    display: none;
-}
-
-.tabs__content {
-    order: 1;
-    width: 60%;
-    margin: auto;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    line-height: 1.5;
-    font-size: 0.9em;
-    display: none;
-}
-
-.tabs__radio:checked + .tabs__label {
-    font-weight: bold;
-    color: #009578;
-
-    border-color: #009578;
-}
-
-.redirec-title {
-    font-family: 'Recoleta', sans-serif;
-    font-size: 28px;
-    text-align: center;
-    font-style: italic;
-}
-
-.tabs__radio:checked + .tabs__label + .tabs__content {
-    display: initial;
-}
-
-.tabs_content_text {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 15px;
-}
-
-.value-large-text {
-    font-family: 'Quicksand', sans-serif;
-
-}
-
-.value-small-text {
-
-    font-family: 'Recoleta', sans-serif;
 }
