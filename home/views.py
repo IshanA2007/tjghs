@@ -70,8 +70,8 @@ class ProfileView(View):
                 user.numServiceHours = 0
             user.save()
             request.session['username'] = username
-            form = ServiceHoursForm()
-
+            form = SubmissionForm()
+            curusersubmissions = Submission.objects.filter(user=request.session['username'])
             return render(request, "profile.html",
                           {"user": user, "form": form, "curusersubmissions": curusersubmissions})
         else:
