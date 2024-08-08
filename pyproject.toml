@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ghs"
+version = "0.1.0"
+description = "Website for the TJ German Honor Society"
+authors = ["Ishan Ajwani"]
+license = "MIT"
+#readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.7"
+requests-oauthlib = "^2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
